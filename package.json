@@ -60,10 +60,10 @@
   },
   "lint-staged": {
     "*.(ts|tsx|js|jsx)": [
-      "lint:es"
+      "yarn lint:es"
     ],
     "*.(css|scss|sass)": [
-      "lint:scss"
+      "yarn lint:scss"
     ]
   }
 }
