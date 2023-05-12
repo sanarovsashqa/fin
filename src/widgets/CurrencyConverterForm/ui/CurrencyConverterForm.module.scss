@@ -1,0 +1,18 @@
+.card {
+  display: flex;
+  flex-flow: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.currency {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  max-width: 320px;
+}
+
+.arrows {
+  width: auto;
+  height: 20px;
+}
