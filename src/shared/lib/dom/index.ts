@@ -1,1 +1,0 @@
-export { setViewHeight } from './setViewHeight';

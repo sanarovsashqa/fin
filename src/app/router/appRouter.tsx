@@ -2,18 +2,26 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { baseLayout } from '../layouts';
 
+import { CurrencyConverterPage } from 'pages/CurrencyConverter';
+import { ExchangeRatesPage } from 'pages/ExchangeRates';
+
+enum AppRoutes {
+  CurrencyConverter = '/',
+  ExchangeRates = 'exchange-rates',
+}
+
 export const appRouter = createBrowserRouter([
   {
     element: baseLayout,
     errorElement: <div>404</div>,
     children: [
       {
-        path: '/',
-        element: <div>Hello!</div>,
+        path: AppRoutes.CurrencyConverter,
+        element: <CurrencyConverterPage />,
       },
       {
-        path: '/exchange-rates',
-        element: <div>Exchange rates</div>,
+        path: AppRoutes.ExchangeRates,
+        element: <ExchangeRatesPage />,
       },
     ],
   },

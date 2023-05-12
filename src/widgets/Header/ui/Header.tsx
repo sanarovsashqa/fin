@@ -2,11 +2,14 @@ import cn from 'classnames';
 
 import styles from './Header.module.scss';
 
+import { ContentWrapper } from 'shared/ui/ContentWrapper';
 import { RouterLink } from 'shared/ui/RouterLink';
 
 export const Header = () => (
-  <div className={cn(styles.header)}>
-    <RouterLink to='/'>Конвертер валют</RouterLink>
-    <RouterLink to='/exchange-rates'>Курсы валют</RouterLink>
-  </div>
+  <nav className={cn(styles.wrapper)}>
+    <ContentWrapper className={cn(styles.content)}>
+      <RouterLink to='/'>Конвертер валют</RouterLink>
+      <RouterLink to='/exchange-rates'>Курсы валют</RouterLink>
+    </ContentWrapper>
+  </nav>
 );
