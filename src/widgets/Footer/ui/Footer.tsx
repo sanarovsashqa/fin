@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import styles from './Footer.module.scss';
 
-import { ContentWrapper } from 'shared/ui/ContentWrapper';
+import { ContentWrapper } from 'shared/ui/components';
 
 export const Footer = () => (
   <div className={cn(styles.wrapper)}>

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Layout } from 'shared/ui/Layout';
+import { Layout } from 'shared/ui/layout';
 import { Footer } from 'widgets/Footer';
 import { Header } from 'widgets/Header';
 
