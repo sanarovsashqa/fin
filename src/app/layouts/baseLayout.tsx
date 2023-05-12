@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router-dom';
 
-import { Layout } from 'shared/ui/layout';
+import { Layout } from 'shared/ui/Layout';
+import { Footer } from 'widgets/Footer';
+import { Header } from 'widgets/Header';
 
 export const baseLayout = (
   <Layout>
     <Layout.Header>
-      <div>HEADER</div>
+      <Header />
     </Layout.Header>
 
     <Layout.Content>
@@ -13,7 +15,7 @@ export const baseLayout = (
     </Layout.Content>
 
     <Layout.Footer>
-      <div>FOOTER</div>
+      <Footer />
     </Layout.Footer>
   </Layout>
 );

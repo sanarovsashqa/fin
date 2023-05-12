@@ -35,6 +35,10 @@ body {
   background: var(--background-color);
 }
 
+p {
+  margin: 0;
+}
+
 .text-xs {
   font-size: 0.75rem; /* 12px */
   line-height: 1rem; /* 16px */

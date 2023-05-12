@@ -1,0 +1,15 @@
+.link {
+  padding: 4px;
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--hovered-link-color);
+  }
+
+  &:global.active {
+    cursor: default;
+    color: var(--hovered-link-color);
+    border-bottom: 1px dotted var(--hovered-link-color);
+  }
+}

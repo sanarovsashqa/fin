@@ -11,6 +11,10 @@ export const appRouter = createBrowserRouter([
         path: '/',
         element: <div>Hello!</div>,
       },
+      {
+        path: '/exchange-rates',
+        element: <div>Exchange rates</div>,
+      },
     ],
   },
 ]);

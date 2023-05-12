@@ -5,4 +5,5 @@
 *.md
 *.svg
 *.html
+*.xml
 /node_modules
