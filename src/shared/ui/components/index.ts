@@ -1,5 +1,6 @@
 export { Card } from './Card';
 export { ContentWrapper } from './ContentWrapper';
 export { Input } from './Input';
+export { Loader } from './Loader';
 export { RouterLink } from './RouterLink';
-export { Select } from './Select';
+export { Option as SelectOption, Select, SelectProps } from './Select';

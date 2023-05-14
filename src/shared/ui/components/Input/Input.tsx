@@ -1,18 +1,44 @@
 import cn from 'classnames';
-import { FC, InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, forwardRef } from 'react';
+import InputMask from 'react-input-mask';
 
 import styles from './Input.module.scss';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
+  label: string;
+  mask?: string | (string | RegExp)[];
+  isLoading?: boolean;
 }
 
-export const Input: FC<InputProps> = ({ label, ...inputProps }) => (
-  <label className={cn(styles.label)}>
-    <span className='text-sm'>{label}</span>
-    <input
-      className={cn(styles.input, 'text-xl', 'text-bold')}
-      {...inputProps}
-    ></input>
-  </label>
-);
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(props, ref) {
+  const { isLoading, label, mask, ...inputProps } = props;
+
+  const inputClassName = cn(styles.input, 'text-xl', 'text-bold');
+
+  return (
+    <label className={cn(styles.label)}>
+      <span className='text-sm'>{label}</span>
+
+      {mask ? (
+        <InputMask
+          mask={mask}
+          maskPlaceholder={null}
+          {...inputProps}
+        >
+          <input
+            className={inputClassName}
+            ref={ref}
+          />
+        </InputMask>
+      ) : (
+        <input
+          className={inputClassName}
+          ref={ref}
+          {...inputProps}
+        />
+      )}
+
+      {isLoading && <div className={cn(styles.loader)} />}
+    </label>
+  );
+});
