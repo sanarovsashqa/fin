@@ -1,38 +1,38 @@
 import cn from 'classnames';
 import debounce from 'lodash.debounce';
-import { FC, useEffect, useMemo } from 'react';
+import { FC, useEffect } from 'react';
 
 import { useForm } from 'react-hook-form';
 
 import styles from './CurrencyConverterForm.module.scss';
 
-import { DEFAULT_VALUES } from '../model/defaultValues';
 import { CurrencyConverterFormData } from '../model/types';
 
 import { useLazyConvertCurrencyQuery } from 'entities/convert';
-import { Currency, mapCurrenciesToSelectOptions } from 'entities/currency';
-
 import { integerNumberMask } from 'shared/lib/masks';
-import { Input, Select } from 'shared/ui/components';
+import { Input, Select, SelectOption } from 'shared/ui/components';
 
 export interface CurrencyConverterFormProps {
-  currencies: Currency[];
+  options: SelectOption[];
 }
 
-export const CurrencyConverterForm: FC<CurrencyConverterFormProps> = ({ currencies }) => {
-  const options = useMemo(() => mapCurrenciesToSelectOptions(currencies), [currencies]);
+const DEFAULT_VALUES = {
+  from: 'USD',
+  to: 'EUR',
+};
+
+export const CurrencyConverterForm: FC<CurrencyConverterFormProps> = ({ options }) => {
+  const [convertCurrency, convertResult] = useLazyConvertCurrencyQuery();
+  const isLoading = convertResult.isFetching || convertResult.isLoading;
 
   const { handleSubmit, register, watch } = useForm<CurrencyConverterFormData>({
     defaultValues: DEFAULT_VALUES,
   });
 
-  const [convertCurrency, amountResult] = useLazyConvertCurrencyQuery();
-
-  const isLoading = amountResult.isFetching || amountResult.isLoading;
-
   useEffect(() => {
     const onSubmit = (data: CurrencyConverterFormData) => convertCurrency(data);
     const subscription = watch(debounce(() => handleSubmit(onSubmit)(), 1000));
+
     return () => subscription.unsubscribe();
   }, [convertCurrency, handleSubmit, watch]);
 
@@ -61,7 +61,7 @@ export const CurrencyConverterForm: FC<CurrencyConverterFormProps> = ({ currenci
           label='Получаю'
           placeholder='0'
           readOnly={true}
-          value={amountResult.data ?? ''}
+          value={convertResult.data ?? ''}
         />
 
         <Select

@@ -5,7 +5,7 @@ import InputMask from 'react-input-mask';
 import styles from './Input.module.scss';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   mask?: string | (string | RegExp)[];
   isLoading?: boolean;
 }
@@ -38,7 +38,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(pro
         />
       )}
 
-      {isLoading && <div className={cn(styles.loader)} />}
+      {isLoading && (
+        <div className={cn(styles['loader-wrapper'])}>
+          <div className={cn(styles.loader)} />
+        </div>
+      )}
     </label>
   );
 });

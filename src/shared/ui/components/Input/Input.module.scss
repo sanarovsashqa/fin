@@ -22,15 +22,20 @@
   }
 }
 
-.loader {
+.loader-wrapper {
   position: absolute;
-  top: 50%;
+  top: 0;
   right: 0;
-  transform: translateY(-50%);
 
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  box-sizing: border-box;
+  width: 24px;
+  height: 100%;
+}
+
+.loader {
   width: 24px;
   height: 24px;
 

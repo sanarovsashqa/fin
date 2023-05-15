@@ -1,4 +1,4 @@
-export type Currency = {
+export interface Currency {
   code: string;
   flag: string;
-};
+}

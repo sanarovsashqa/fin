@@ -1,13 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { baseLayout } from '../layouts';
+import { baseLayout } from '../layouts/baseLayout';
 
 import { CurrencyConverterPage } from 'pages/CurrencyConverter';
 import { ExchangeRatesPage } from 'pages/ExchangeRates';
 
 enum AppRoutes {
   CurrencyConverter = '/',
-  ExchangeRates = 'exchange-rates',
+  ExchangeRates = '/exchange-rates',
 }
 
 export const appRouter = createBrowserRouter([

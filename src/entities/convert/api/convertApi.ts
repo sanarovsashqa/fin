@@ -3,8 +3,7 @@ import { ConvertCurrencyDto, ConvertCurrencyParams } from './types';
 import { mapConvertCurrency } from '../lib/mapConvertCurrency';
 import { ConvertCurrencyResult } from '../model/types';
 
-import { baseApi } from 'shared/api';
-import { CONVERT_TAG } from 'shared/api/tags';
+import { baseApi, CONVERT_TAG } from 'shared/api';
 
 export const convertApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
